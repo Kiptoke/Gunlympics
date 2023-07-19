@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED: int = 2000.0
+@export var SPEED: int = 2000
 
 func start(pos, dir):
 	rotation = dir

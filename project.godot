@@ -15,6 +15,10 @@ run/main_scene="res://scenes/level.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://graphics/icon.svg"
 
+[autoload]
+
+Globals="*res://scripts/globals.gd"
+
 [display]
 
 window/size/viewport_width=1280
@@ -24,6 +28,10 @@ window/stretch/mode="canvas_items"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg")
+
+[importer_defaults]
+
+image={}
 
 [input]
 
