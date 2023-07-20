@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdd7flo2wgjxj"]
+
+[ext_resource type="Script" path="res://scripts/label_update.gd" id="1_y3yyg"]
+[ext_resource type="Script" path="res://scripts/timeLabel.gd" id="2_e8oiy"]
+[ext_resource type="Script" path="res://scripts/startLabel.gd" id="3_hi87n"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="speedLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 264.0
+offset_bottom = 64.0
+theme_override_font_sizes/normal_font_size = 30
+text = "test"
+script = ExtResource("1_y3yyg")
+
+[node name="timeLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 264.0
+offset_bottom = 112.0
+theme_override_font_sizes/normal_font_size = 30
+text = "test"
+scroll_active = false
+script = ExtResource("2_e8oiy")
+
+[node name="startLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 544.0
+offset_top = 128.0
+offset_right = 736.0
+offset_bottom = 272.0
+bbcode_enabled = true
+text = "[font_size=55][center][color=red][b]False Start![/b][/color][/center][/font_size]"
+scroll_active = false
+script = ExtResource("3_hi87n")
+
+[node name="startTimer" type="Timer" parent="CanvasLayer/startLabel"]
+wait_time = 5.0
+one_shot = true
+
+[node name="hideTimer" type="Timer" parent="CanvasLayer/startLabel"]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="CanvasLayer/startLabel/startTimer" to="CanvasLayer/startLabel" method="_on_start_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/startLabel/hideTimer" to="CanvasLayer/startLabel" method="_on_hide_timer_timeout"]

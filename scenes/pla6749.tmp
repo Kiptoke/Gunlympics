@@ -1,14 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://0fri7ex6i2i1"]
+[gd_scene load_steps=9 format=3 uid="uid://0fri7ex6i2i1"]
 
-[ext_resource type="Texture2D" uid="uid://pg1abgeyhdj0" path="res://graphics/duck.png" id="2_mby8v"]
+[ext_resource type="Texture2D" uid="uid://0esc88lsvcx5" path="res://graphics/icon.svg" id="1_wudkw"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_u5fx4"]
 [ext_resource type="Script" path="res://scripts/gun.gd" id="3_2r6vs"]
 [ext_resource type="Script" path="res://scripts/reload.gd" id="4_4s6sq"]
-[ext_resource type="AudioStream" uid="uid://crb3glw7dinxf" path="res://audio/gunshot.wav" id="4_k2ynw"]
-[ext_resource type="Script" path="res://scripts/shake.gd" id="5_cbpl6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbaq0"]
-size = Vector2(80, 88)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ds7k"]
+size = Vector2(128, 128)
 
 [sub_resource type="Image" id="Image_yhndc"]
 data = {
@@ -49,14 +47,12 @@ script = ExtResource("2_u5fx4")
 KICKBACK = 750.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(0, -3.8147e-06)
-scale = Vector2(0.426667, 0.426667)
-texture = ExtResource("2_mby8v")
+texture = ExtResource("1_wudkw")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-8, -4)
-shape = SubResource("RectangleShape2D_qbaq0")
+shape = SubResource("RectangleShape2D_8ds7k")
+metadata/_edit_lock_ = true
 
 [node name="Gun" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -77,13 +73,7 @@ one_shot = true
 explosiveness = 0.9
 trail_lifetime = 0.2
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Gun"]
-stream = ExtResource("4_k2ynw")
-
 [node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("5_cbpl6")
-shake_strength = 50.0
-shake_speed = 25.0
 metadata/_edit_lock_ = true
 
 [node name="RightImpulse" type="Marker2D" parent="."]

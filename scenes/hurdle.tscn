@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0fusfittawed"]
+
+[ext_resource type="Texture2D" uid="uid://f2dwqpckvvle" path="res://graphics/square.png" id="1_288sb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0o6m5"]
+size = Vector2(26, 256)
+
+[node name="Hurdle" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 63
+mass = 3.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.454902, 0.419608, 0.368627, 1)
+position = Vector2(0, -3.8147e-06)
+scale = Vector2(0.048, 0.512)
+texture = ExtResource("1_288sb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0o6m5")

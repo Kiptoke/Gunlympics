@@ -1,0 +1,258 @@
+[gd_scene load_steps=7 format=3 uid="uid://bclh23gjs7obq"]
+
+[ext_resource type="Texture2D" uid="uid://cwb0srbtfnlmq" path="res://graphics/greenSquare.png" id="1_v0qpt"]
+[ext_resource type="PackedScene" uid="uid://0fri7ex6i2i1" path="res://scenes/player.tscn" id="2_6f6cw"]
+[ext_resource type="PackedScene" uid="uid://cdd7flo2wgjxj" path="res://scenes/trackUI.tscn" id="3_dv7qo"]
+[ext_resource type="PackedScene" uid="uid://b0fusfittawed" path="res://scenes/hurdle.tscn" id="4_n1jku"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8buu"]
+size = Vector2(2396.78, 1088)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wm7ss"]
+size = Vector2(128, 768)
+
+[node name="500Meters" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(640, 640)
+scale = Vector2(8.62492, 1)
+collision_layer = 4
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+position = Vector2(1109.34, 480)
+scale = Vector2(3.99463, 1.81333)
+texture = ExtResource("1_v0qpt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(1109.34, 480)
+shape = SubResource("RectangleShape2D_f8buu")
+
+[node name="Player" parent="." instance=ExtResource("2_6f6cw")]
+position = Vector2(640, 320)
+
+[node name="TrackUI" parent="." instance=ExtResource("3_dv7qo")]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(20480, 192)
+shape = SubResource("RectangleShape2D_wm7ss")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(20480, 192)
+scale = Vector2(0.213337, 1.28)
+texture = ExtResource("1_v0qpt")
+
+[node name="Hurdles" type="Node" parent="."]
+
+[node name="Hurdle" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(1408, 448)
+
+[node name="Hurdle2" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(1736, 448)
+
+[node name="Hurdle3" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(2048, 448)
+
+[node name="Hurdle4" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(2368, 448)
+
+[node name="Hurdle5" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(2688, 448)
+
+[node name="Hurdle6" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(3016, 448)
+
+[node name="Hurdle7" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(3328, 448)
+
+[node name="Hurdle8" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(3648, 448)
+
+[node name="Hurdle9" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(3968, 448)
+
+[node name="Hurdle10" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(4296, 448)
+
+[node name="Hurdle11" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(4608, 448)
+
+[node name="Hurdle12" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(4928, 448)
+
+[node name="Hurdle13" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(5248, 448)
+
+[node name="Hurdle14" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(5576, 448)
+
+[node name="Hurdle15" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(5888, 448)
+
+[node name="Hurdle16" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(6208, 448)
+
+[node name="Hurdle17" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(7616, 448)
+
+[node name="Hurdle18" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(7944, 448)
+
+[node name="Hurdle19" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(8256, 448)
+
+[node name="Hurdle20" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(8576, 448)
+
+[node name="Hurdle21" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(8896, 448)
+
+[node name="Hurdle22" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(9224, 448)
+
+[node name="Hurdle23" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(9536, 448)
+
+[node name="Hurdle24" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(9856, 448)
+
+[node name="Hurdle25" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(10176, 448)
+
+[node name="Hurdle26" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(10504, 448)
+
+[node name="Hurdle27" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(10816, 448)
+
+[node name="Hurdle28" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(11136, 448)
+
+[node name="Hurdle29" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(11456, 448)
+
+[node name="Hurdle30" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(11784, 448)
+
+[node name="Hurdle31" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(12096, 448)
+
+[node name="Hurdle32" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(12416, 448)
+
+[node name="Hurdle33" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(7616, 192)
+
+[node name="Hurdle34" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(7944, 192)
+
+[node name="Hurdle35" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(8256, 192)
+
+[node name="Hurdle36" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(8576, 192)
+
+[node name="Hurdle37" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(8896, 192)
+
+[node name="Hurdle38" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(9224, 192)
+
+[node name="Hurdle39" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(9536, 192)
+
+[node name="Hurdle40" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(9856, 192)
+
+[node name="Hurdle41" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(10176, 192)
+
+[node name="Hurdle42" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(10504, 192)
+
+[node name="Hurdle43" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(10816, 192)
+
+[node name="Hurdle44" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(11136, 192)
+
+[node name="Hurdle45" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(11456, 192)
+
+[node name="Hurdle46" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(11784, 192)
+
+[node name="Hurdle47" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(12096, 192)
+
+[node name="Hurdle48" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(12416, 192)
+
+[node name="Hurdle49" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(14152, 448)
+
+[node name="Hurdle50" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(14480, 448)
+
+[node name="Hurdle51" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(14792, 448)
+
+[node name="Hurdle52" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(15112, 448)
+
+[node name="Hurdle53" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(15432, 448)
+
+[node name="Hurdle54" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(15760, 448)
+
+[node name="Hurdle56" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(16392, 448)
+
+[node name="Hurdle57" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(16712, 448)
+
+[node name="Hurdle60" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(17672, 448)
+
+[node name="Hurdle61" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(17992, 448)
+
+[node name="Hurdle62" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(18320, 448)
+
+[node name="Hurdle63" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(18632, 448)
+
+[node name="Hurdle64" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(18952, 448)
+
+[node name="Hurdle66" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(14480, 192)
+
+[node name="Hurdle68" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(15112, 192)
+
+[node name="Hurdle70" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(15760, 192)
+
+[node name="Hurdle72" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(16392, 192)
+
+[node name="Hurdle73" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(16712, 192)
+
+[node name="Hurdle76" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(17672, 192)
+
+[node name="Hurdle79" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(18632, 192)
+
+[node name="Hurdle80" parent="Hurdles" instance=ExtResource("4_n1jku")]
+position = Vector2(18952, 192)
+
+[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
