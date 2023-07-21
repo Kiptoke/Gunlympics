@@ -9,12 +9,14 @@ extends RigidBody2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var random = RandomNumberGenerator.new()
+var position_offset = 537
 
 func _ready():
 	randomize()
 
 func _integrate_forces(state):
 	globals.player_speed = floor(linear_velocity.length())
+	globals.player_height = floor(position_offset - self.position.y)
 	
 	if position.y > 750:
 		state.transform = Transform2D(0.0, Vector2(640, 320))
@@ -35,8 +37,9 @@ func on_shoot():
 		globals.faultFlag = true
 	
 	var bullet = preload("res://scenes/bullet.tscn").instantiate()
-	bullet.start($Gun/GunFront.global_position, $Gun.global_rotation)
 	get_parent().call_deferred("add_child", bullet)
+	bullet.transform = $Gun/GunFront.global_transform
+	bullet.velocity = Vector2(bullet.SPEED, 0).rotated(bullet.rotation)
 	
 	$Gun/GunFront/GPUParticles2D.restart()
 	$Gun/AudioStreamPlayer2D.play()
@@ -50,7 +53,7 @@ func on_shoot():
 func apply_recoil():
 	# Physical kickback
 	set_axis_velocity(Vector2.ZERO)
-	var direction = self.global_position - $Gun/GunFront.global_position
+	var direction = self.global_position - get_global_mouse_position()
 	var kick = direction.normalized() * KICKBACK
 	apply_impulse(kick)
 	

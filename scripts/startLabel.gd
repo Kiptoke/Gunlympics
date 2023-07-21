@@ -19,6 +19,7 @@ func _ready():
 func _process(_delta):
 	if globals.faultFlag == true:
 		text = fault
+		get_parent().get_node("Button").visible = true
 		$startTimer.stop()
 		
 func _on_hide_timer_timeout():

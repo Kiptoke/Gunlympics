@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdd7flo2wgjxj"]
+[gd_scene load_steps=6 format=3 uid="uid://cdd7flo2wgjxj"]
 
 [ext_resource type="Script" path="res://scripts/label_update.gd" id="1_y3yyg"]
 [ext_resource type="Script" path="res://scripts/timeLabel.gd" id="2_e8oiy"]
 [ext_resource type="Script" path="res://scripts/startLabel.gd" id="3_hi87n"]
+[ext_resource type="Theme" uid="uid://c72htwekbecvx" path="res://main_menu.tres" id="4_2bynf"]
+[ext_resource type="Script" path="res://scripts/goback.gd" id="4_sx7ig"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,20 +17,22 @@ grow_vertical = 2
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="speedLabel" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 264.0
-offset_bottom = 64.0
+offset_left = 1008.0
+offset_top = 24.0
+offset_right = 1256.0
+offset_bottom = 72.0
 theme_override_font_sizes/normal_font_size = 30
-text = "test"
+bbcode_enabled = true
+text = "[right]test[/right]"
 script = ExtResource("1_y3yyg")
 
 [node name="timeLabel" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 16.0
-offset_top = 64.0
-offset_right = 264.0
-offset_bottom = 112.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 272.0
+offset_bottom = 72.0
 theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
 text = "test"
 scroll_active = false
 script = ExtResource("2_e8oiy")
@@ -51,5 +55,16 @@ one_shot = true
 wait_time = 3.0
 one_shot = true
 
+[node name="Button" type="Button" parent="CanvasLayer"]
+visible = false
+offset_left = 488.0
+offset_top = 456.0
+offset_right = 792.0
+offset_bottom = 504.0
+theme = ExtResource("4_2bynf")
+text = "Go back to Events"
+script = ExtResource("4_sx7ig")
+
 [connection signal="timeout" from="CanvasLayer/startLabel/startTimer" to="CanvasLayer/startLabel" method="_on_start_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/startLabel/hideTimer" to="CanvasLayer/startLabel" method="_on_hide_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]

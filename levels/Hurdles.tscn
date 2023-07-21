@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bclh23gjs7obq"]
+[gd_scene load_steps=8 format=3 uid="uid://bclh23gjs7obq"]
 
 [ext_resource type="Texture2D" uid="uid://cwb0srbtfnlmq" path="res://graphics/greenSquare.png" id="1_v0qpt"]
 [ext_resource type="PackedScene" uid="uid://0fri7ex6i2i1" path="res://scenes/player.tscn" id="2_6f6cw"]
 [ext_resource type="PackedScene" uid="uid://cdd7flo2wgjxj" path="res://scenes/trackUI.tscn" id="3_dv7qo"]
+[ext_resource type="Texture2D" uid="uid://f2dwqpckvvle" path="res://graphics/square.png" id="4_hqkid"]
 [ext_resource type="PackedScene" uid="uid://b0fusfittawed" path="res://scenes/hurdle.tscn" id="4_n1jku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8buu"]
@@ -34,6 +35,9 @@ position = Vector2(640, 320)
 [node name="TrackUI" parent="." instance=ExtResource("3_dv7qo")]
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0.00012207, -27624)
+scale = Vector2(0.999884, 49.0697)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(20480, 192)
@@ -41,10 +45,11 @@ shape = SubResource("RectangleShape2D_wm7ss")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-modulate = Color(1, 1, 1, 0.137255)
-position = Vector2(20480, 192)
-scale = Vector2(0.213337, 1.28)
-texture = ExtResource("1_v0qpt")
+modulate = Color(1, 0, 0, 0.137255)
+z_index = -1
+position = Vector2(20478.4, 223.917)
+scale = Vector2(0.240029, 1.40767)
+texture = ExtResource("4_hqkid")
 
 [node name="Hurdles" type="Node" parent="."]
 
