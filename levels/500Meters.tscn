@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://crshmt5bovs82"]
+[gd_scene load_steps=8 format=3 uid="uid://crshmt5bovs82"]
 
 [ext_resource type="Texture2D" uid="uid://cwb0srbtfnlmq" path="res://graphics/greenSquare.png" id="1_7ehpb"]
 [ext_resource type="PackedScene" uid="uid://0fri7ex6i2i1" path="res://scenes/player.tscn" id="2_355wn"]
 [ext_resource type="PackedScene" uid="uid://cdd7flo2wgjxj" path="res://scenes/trackUI.tscn" id="3_7duio"]
 [ext_resource type="Texture2D" uid="uid://f2dwqpckvvle" path="res://graphics/square.png" id="4_x12hb"]
+[ext_resource type="PackedScene" uid="uid://ccgvditmh6w4w" path="res://scenes/audio.tscn" id="5_ql82r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8buu"]
 size = Vector2(2396.78, 1088)
@@ -49,6 +50,8 @@ texture = ExtResource("4_x12hb")
 
 [node name="Player" parent="." instance=ExtResource("2_355wn")]
 position = Vector2(640, 320)
+
+[node name="Audio" parent="." instance=ExtResource("5_ql82r")]
 
 [connection signal="body_entered" from="Area2D" to="TrackUI/CanvasLayer/startLabel" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]

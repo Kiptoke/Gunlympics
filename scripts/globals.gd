@@ -29,6 +29,7 @@ func _process(_delta):
 		raceFinish = false
 		
 		var node = get_tree().root.get_child(-1)
-		if node.to_string() != "Levels":
+		if node.name != "Levels":
 			node.queue_free()
 			get_tree().root.get_node("Levels/CanvasLayer").visible = true
+			get_tree().root.get_node("Levels/AudioStreamPlayer").play()

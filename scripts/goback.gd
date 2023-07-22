@@ -9,3 +9,4 @@ func _on_pressed():
 	get_parent().get_parent().get_parent().queue_free()
 	self.visible = false
 	get_tree().root.get_node("Levels/CanvasLayer").visible = true
+	get_tree().root.get_node("Levels/AudioStreamPlayer").play()

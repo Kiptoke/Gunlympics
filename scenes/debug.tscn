@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://3jchlwoiu28r"]
+[gd_scene load_steps=6 format=3 uid="uid://3jchlwoiu28r"]
 
 [ext_resource type="Script" path="res://scripts/DebugMenu.gd" id="1_bd2gr"]
 [ext_resource type="Theme" uid="uid://c72htwekbecvx" path="res://main_menu.tres" id="1_l2veu"]
+[ext_resource type="Script" path="res://scripts/fanfare.gd" id="2_cyf0d"]
+[ext_resource type="AudioStream" uid="uid://3t7ew8q0uyba" path="res://audio/fanfare.wav" id="3_2xec3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lmwfv"]
 
@@ -13,6 +15,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2xec3")
+autoplay = true
+script = ExtResource("2_cyf0d")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -144,8 +151,14 @@ offset_bottom = 512.0
 text = "Rock Climbing"
 
 [connection signal="pressed" from="CanvasLayer/Buttons/500 M" to="CanvasLayer/Buttons" method="_on__m_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/500 M" to="AudioStreamPlayer" method="_on__m_pressed"]
 [connection signal="pressed" from="CanvasLayer/Buttons/Hurdles" to="CanvasLayer/Buttons" method="_on_hurdles_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/Hurdles" to="AudioStreamPlayer" method="_on_hurdles_pressed"]
 [connection signal="pressed" from="CanvasLayer/Buttons/Long Jump" to="CanvasLayer/Buttons" method="_on_long_jump_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/Long Jump" to="AudioStreamPlayer" method="_on_long_jump_pressed"]
 [connection signal="pressed" from="CanvasLayer/Buttons/Shooting" to="CanvasLayer/Buttons" method="_on_shooting_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/Shooting" to="AudioStreamPlayer" method="_on_shooting_pressed"]
 [connection signal="pressed" from="CanvasLayer/Buttons/Sailing" to="CanvasLayer/Buttons" method="_on_sailing_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/Sailing" to="AudioStreamPlayer" method="_on_sailing_pressed"]
 [connection signal="pressed" from="CanvasLayer/Buttons/RockClimbing" to="CanvasLayer/Buttons" method="_on_rock_climbing_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/RockClimbing" to="AudioStreamPlayer" method="_on_rock_climbing_pressed"]

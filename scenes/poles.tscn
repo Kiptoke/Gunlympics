@@ -29,6 +29,7 @@ collision_layer = 4
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+modulate = Color(0.772549, 0.254902, 0.254902, 1)
 scale = Vector2(0.0639999, 0.064)
 texture = ExtResource("1_0acq8")
 
@@ -40,5 +41,9 @@ script = ExtResource("2_ovt8g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Good"]
 shape = SubResource("RectangleShape2D_ay4y0")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.254902, 0.705882, 0.513726, 0.196078)
+polygon = PackedVector2Array(-16, -80, 16, -80, 16, 80, -16, 80)
 
 [connection signal="body_entered" from="Good" to="Good" method="_on_body_entered"]

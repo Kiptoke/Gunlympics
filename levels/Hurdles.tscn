@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bclh23gjs7obq"]
+[gd_scene load_steps=9 format=3 uid="uid://bclh23gjs7obq"]
 
 [ext_resource type="Texture2D" uid="uid://cwb0srbtfnlmq" path="res://graphics/greenSquare.png" id="1_v0qpt"]
 [ext_resource type="PackedScene" uid="uid://0fri7ex6i2i1" path="res://scenes/player.tscn" id="2_6f6cw"]
 [ext_resource type="PackedScene" uid="uid://cdd7flo2wgjxj" path="res://scenes/trackUI.tscn" id="3_dv7qo"]
 [ext_resource type="Texture2D" uid="uid://f2dwqpckvvle" path="res://graphics/square.png" id="4_hqkid"]
 [ext_resource type="PackedScene" uid="uid://b0fusfittawed" path="res://scenes/hurdle.tscn" id="4_n1jku"]
+[ext_resource type="PackedScene" uid="uid://ccgvditmh6w4w" path="res://scenes/audio.tscn" id="6_xlsda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8buu"]
 size = Vector2(2396.78, 1088)
@@ -259,6 +260,8 @@ position = Vector2(18632, 192)
 
 [node name="Hurdle80" parent="Hurdles" instance=ExtResource("4_n1jku")]
 position = Vector2(18952, 192)
+
+[node name="Audio" parent="." instance=ExtResource("6_xlsda")]
 
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="TrackUI/CanvasLayer/startLabel" method="_on_area_2d_body_entered"]

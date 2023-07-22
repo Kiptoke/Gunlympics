@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://op0q7kr023vd"]
+[gd_scene load_steps=12 format=3 uid="uid://op0q7kr023vd"]
 
 [ext_resource type="Script" path="res://scripts/Targets.gd" id="1_5d6et"]
 [ext_resource type="Texture2D" uid="uid://cwb0srbtfnlmq" path="res://graphics/greenSquare.png" id="1_mij7e"]
 [ext_resource type="PackedScene" uid="uid://cdd7flo2wgjxj" path="res://scenes/trackUI.tscn" id="2_p3x6r"]
 [ext_resource type="Texture2D" uid="uid://f2dwqpckvvle" path="res://graphics/square.png" id="3_n4gp6"]
+[ext_resource type="PackedScene" uid="uid://ccgvditmh6w4w" path="res://scenes/audio.tscn" id="4_4jqge"]
 [ext_resource type="PackedScene" uid="uid://0fri7ex6i2i1" path="res://scenes/player.tscn" id="4_qw6x2"]
 [ext_resource type="Script" path="res://scripts/targetLabel.gd" id="5_1t62f"]
 [ext_resource type="PackedScene" uid="uid://bcoivuibmiald" path="res://scenes/target.tscn" id="5_eg8my"]
+[ext_resource type="AudioStream" uid="uid://oo5h1hfauwpf" path="res://audio/trim_targets.wav" id="5_uqykc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8buu"]
 size = Vector2(2396.78, 1088)
@@ -189,6 +191,12 @@ texture = ExtResource("1_mij7e")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor9"]
 shape = SubResource("RectangleShape2D_f8buu")
 
+[node name="Audio" parent="." instance=ExtResource("4_4jqge")]
+
+[node name="Targets" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("5_uqykc")
+volume_db = -10.0
+
 [node name="TrackUI" parent="." instance=ExtResource("2_p3x6r")]
 
 [node name="targetLabel" type="RichTextLabel" parent="TrackUI/CanvasLayer" index="1"]
@@ -225,4 +233,5 @@ position = Vector2(640, 320)
 [connection signal="body_entered" from="Area2D" to="TrackUI/CanvasLayer/startLabel" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
 
+[editable path="Audio"]
 [editable path="TrackUI"]

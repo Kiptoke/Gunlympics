@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4xbuquxkfi8t"]
+[gd_scene load_steps=11 format=3 uid="uid://b4xbuquxkfi8t"]
 
 [ext_resource type="Texture2D" uid="uid://cwb0srbtfnlmq" path="res://graphics/greenSquare.png" id="1_w1jax"]
 [ext_resource type="PackedScene" uid="uid://cdd7flo2wgjxj" path="res://scenes/trackUI.tscn" id="2_paubk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/distanceLabel.gd" id="3_qg7od"]
 [ext_resource type="PackedScene" uid="uid://0fri7ex6i2i1" path="res://scenes/player.tscn" id="4_hophd"]
 [ext_resource type="Script" path="res://scripts/jump_line.gd" id="6_ypa5u"]
+[ext_resource type="PackedScene" uid="uid://ccgvditmh6w4w" path="res://scenes/audio.tscn" id="7_43xw6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8buu"]
 size = Vector2(2396.78, 1088)
@@ -71,6 +72,8 @@ modulate = Color(0.870588, 0.372549, 0.372549, 1)
 position = Vector2(2596, 1172)
 scale = Vector2(0.048, 2.384)
 texture = ExtResource("3_e3315")
+
+[node name="Audio" parent="." instance=ExtResource("7_43xw6")]
 
 [node name="Sand" type="Area2D" parent="."]
 position = Vector2(38040, 1174.5)

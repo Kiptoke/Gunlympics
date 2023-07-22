@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccgvditmh6w4w"]
+
+[ext_resource type="Script" path="res://scripts/Audio.gd" id="1_o7sd8"]
+[ext_resource type="AudioStream" uid="uid://0njqkxfbitx5" path="res://audio/start.wav" id="2_vds3q"]
+[ext_resource type="AudioStream" uid="uid://bu2230dwpyd5c" path="res://audio/crowd.wav" id="3_nl3ps"]
+[ext_resource type="AudioStream" uid="uid://fadt18of810" path="res://audio/cheer.wav" id="4_jkyna"]
+
+[sub_resource type="Animation" id="Animation_shiwd"]
+resource_name = "FadeToCheer"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Crowd:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cheer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(5.09824, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wnmlp"]
+_data = {
+"FadeToCheer": SubResource("Animation_shiwd")
+}
+
+[node name="Audio" type="Node"]
+script = ExtResource("1_o7sd8")
+
+[node name="Start" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vds3q")
+
+[node name="Crowd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nl3ps")
+autoplay = true
+
+[node name="Cheer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jkyna")
+volume_db = -80.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wnmlp")
+}

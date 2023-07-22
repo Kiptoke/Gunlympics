@@ -1,12 +1,28 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqybqxhbyawf3"]
+[gd_scene load_steps=13 format=3 uid="uid://dqybqxhbyawf3"]
 
 [ext_resource type="Script" path="res://scripts/slalom_finish.gd" id="1_j6vmv"]
 [ext_resource type="Texture2D" uid="uid://cwb0srbtfnlmq" path="res://graphics/greenSquare.png" id="1_xt4k1"]
+[ext_resource type="Shader" path="res://scripts/Slalom.gdshader" id="2_didt4"]
 [ext_resource type="PackedScene" uid="uid://cdd7flo2wgjxj" path="res://scenes/trackUI.tscn" id="2_njtbj"]
 [ext_resource type="Texture2D" uid="uid://f2dwqpckvvle" path="res://graphics/square.png" id="3_vshjv"]
 [ext_resource type="PackedScene" uid="uid://0fri7ex6i2i1" path="res://scenes/player.tscn" id="4_admrd"]
 [ext_resource type="Script" path="res://scripts/faultLabel.gd" id="4_jvdep"]
 [ext_resource type="PackedScene" uid="uid://c5g5hl4dgcwni" path="res://scenes/poles.tscn" id="6_2kqx4"]
+[ext_resource type="PackedScene" uid="uid://ccgvditmh6w4w" path="res://scenes/audio.tscn" id="6_8c80q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_52u0e"]
+shader = ExtResource("2_didt4")
+shader_parameter/transparency = 1.0
+shader_parameter/color0 = Color(0.01, 0, 1, 1)
+shader_parameter/color1 = Color(0.32, 0.2, 1, 1)
+shader_parameter/color2 = Color(0.34, 0.41, 1, 1)
+shader_parameter/color3 = Color(0.39, 0.52, 1, 1)
+shader_parameter/Direction = Vector2(10, 0)
+shader_parameter/Speed = 1.0
+shader_parameter/thresholds = PackedFloat32Array(0.6, 0.66, 0.75)
+shader_parameter/OCTAVE = 6
+shader_parameter/pixel_size = 10000
+shader_parameter/dithering = 2.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8buu"]
 size = Vector2(2396.78, 1088)
@@ -16,6 +32,13 @@ size = Vector2(128.003, 768)
 
 [node name="Slalom" type="Node2D"]
 script = ExtResource("1_j6vmv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_52u0e")
+offset_left = -103.0
+offset_top = 62.0
+offset_right = 19264.0
+offset_bottom = 644.0
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(624, 712)
@@ -78,9 +101,12 @@ z_index = -1
 scale = Vector2(0.213337, 1.41248)
 texture = ExtResource("3_vshjv")
 
+[node name="Audio" parent="." instance=ExtResource("6_8c80q")]
+
 [node name="Player" parent="." instance=ExtResource("4_admrd")]
 position = Vector2(640, 320)
 gravity_scale = 0.0
+constant_force = Vector2(5, 0)
 
 [node name="Poles" parent="." instance=ExtResource("6_2kqx4")]
 position = Vector2(1600, 176)
