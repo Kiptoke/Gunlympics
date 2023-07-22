@@ -43,7 +43,7 @@ offset_top = 128.0
 offset_right = 736.0
 offset_bottom = 272.0
 bbcode_enabled = true
-text = "[font_size=55][center][color=red][b]False Start![/b][/color][/center][/font_size]"
+text = "[font_size=55][center][rainbow freq=0.3 sat=0.8 val=0.8][wave amp=50.0 freq=5.0 connected=1][b]Finish![/b][/wave][/rainbow][/center][/font_size]"
 scroll_active = false
 script = ExtResource("3_hi87n")
 

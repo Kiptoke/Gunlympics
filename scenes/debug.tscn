@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://3jchlwoiu28r"]
+[gd_scene load_steps=4 format=3 uid="uid://3jchlwoiu28r"]
 
 [ext_resource type="Script" path="res://scripts/DebugMenu.gd" id="1_bd2gr"]
 [ext_resource type="Theme" uid="uid://c72htwekbecvx" path="res://main_menu.tres" id="1_l2veu"]
-[ext_resource type="Material" uid="uid://txuytfcrsayd" path="res://crt_shader.tres" id="3_g1ydd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lmwfv"]
 
@@ -24,6 +23,15 @@ offset_right = 1008.0
 offset_bottom = 232.0
 bbcode_enabled = true
 text = "[wave amp=80.0 freq=5.0 connected=1][center][font_size=100]Gunlympics[/font_size][/center][/wave]"
+threaded = true
+
+[node name="nameLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 272.0
+offset_top = 656.0
+offset_right = 1008.0
+offset_bottom = 688.0
+bbcode_enabled = true
+text = "[wave amp=20.0 freq=5.0 connected=1][center][font_size=20]made by Andrew Zhou for WSoft Beach Jam 2023[/font_size][/center][/wave]"
 threaded = true
 
 [node name="Buttons" type="Control" parent="CanvasLayer"]
@@ -70,7 +78,7 @@ offset_right = 528.0
 offset_bottom = 608.0
 theme = ExtResource("1_l2veu")
 disabled = true
-text = "Vollleyball
+text = "Volleyball
 "
 
 [node name="Soccer" type="Button" parent="CanvasLayer/Buttons"]
@@ -96,6 +104,7 @@ offset_left = 544.0
 offset_top = 448.0
 offset_right = 736.0
 offset_bottom = 512.0
+disabled = true
 text = "Archery
 "
 
@@ -114,7 +123,7 @@ offset_left = 960.0
 offset_top = 256.0
 offset_right = 1152.0
 offset_bottom = 320.0
-text = "Sailing"
+text = "Sailing Slalom"
 
 [node name="Boxing" type="Button" parent="CanvasLayer/Buttons"]
 layout_mode = 0
@@ -134,16 +143,9 @@ offset_right = 1152.0
 offset_bottom = 512.0
 text = "Rock Climbing"
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
-material = ExtResource("3_g1ydd")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
 [connection signal="pressed" from="CanvasLayer/Buttons/500 M" to="CanvasLayer/Buttons" method="_on__m_pressed"]
 [connection signal="pressed" from="CanvasLayer/Buttons/Hurdles" to="CanvasLayer/Buttons" method="_on_hurdles_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/Long Jump" to="CanvasLayer/Buttons" method="_on_long_jump_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/Shooting" to="CanvasLayer/Buttons" method="_on_shooting_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/Sailing" to="CanvasLayer/Buttons" method="_on_sailing_pressed"]
 [connection signal="pressed" from="CanvasLayer/Buttons/RockClimbing" to="CanvasLayer/Buttons" method="_on_rock_climbing_pressed"]

@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5g5hl4dgcwni"]
+
+[ext_resource type="Texture2D" uid="uid://f2dwqpckvvle" path="res://graphics/square.png" id="1_0acq8"]
+[ext_resource type="Script" path="res://scripts/slalom.gd" id="2_ovt8g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78ogd"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ay4y0"]
+size = Vector2(32, 160)
+
+[node name="Poles" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -96)
+collision_layer = 4
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(0.0639999, 0.064)
+texture = ExtResource("1_0acq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_78ogd")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(0, 96)
+collision_layer = 4
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+scale = Vector2(0.0639999, 0.064)
+texture = ExtResource("1_0acq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_78ogd")
+
+[node name="Good" type="Area2D" parent="."]
+script = ExtResource("2_ovt8g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Good"]
+shape = SubResource("RectangleShape2D_ay4y0")
+
+[connection signal="body_entered" from="Good" to="Good" method="_on_body_entered"]

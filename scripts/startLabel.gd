@@ -3,6 +3,7 @@ extends RichTextLabel
 var readyText = "[font_size=45][center][wave amp=20.0 freq=5.0 connected=1][b]Ready...[/b][/wave][/center][/font_size]"
 var goText = "[rainbow freq=1.0 sat=0.8 val=0.8][wave amp=50.0 freq=5.0 connected=1][outline_size=8][font_size=100][b]GO![/b][/font_size][/outline_size][/wave][/rainbow]"
 var fault = "[font_size=55][center][color=red][b]False Start![/b][/color][/center][/font_size]"
+var finish = "[font_size=55][center][rainbow freq=0.3 sat=0.8 val=0.8][wave amp=50.0 freq=5.0 connected=1][b]Finish![/b][/wave][/rainbow][/center][/font_size]"
 
 # Get game state and global variables
 @onready var globals = get_node("/root/Globals")
@@ -31,3 +32,21 @@ func _on_start_timer_timeout():
 	globals.faultFlag = false
 	$hideTimer.start()
 	text = goText
+
+func _on_area_2d_body_entered(_body):
+	if globals.faultFlag == false:
+		self.modulate = Color.WHITE
+		text = finish
+		get_parent().get_node("Button").visible = true
+
+func _on_targets_targets_finished():
+	if globals.faultFlag == false:
+		self.modulate = Color.WHITE
+		text = finish
+		get_parent().get_node("Button").visible = true
+
+func _on_sand_body_entered(_body):
+	if globals.jumpActive == false:
+		self.modulate = Color.WHITE
+		text = finish
+		get_parent().get_node("Button").visible = true

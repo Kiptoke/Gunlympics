@@ -59,6 +59,7 @@ quit={
 2d_physics/layer_4="Environment"
 2d_physics/layer_5="Enemy"
 2d_physics/layer_6="Enemy Bullet"
+2d_physics/layer_7="Target"
 
 [rendering]
 

@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=3 uid="uid://b4xbuquxkfi8t"]
+
+[ext_resource type="Texture2D" uid="uid://cwb0srbtfnlmq" path="res://graphics/greenSquare.png" id="1_w1jax"]
+[ext_resource type="PackedScene" uid="uid://cdd7flo2wgjxj" path="res://scenes/trackUI.tscn" id="2_paubk"]
+[ext_resource type="Texture2D" uid="uid://f2dwqpckvvle" path="res://graphics/square.png" id="3_e3315"]
+[ext_resource type="Script" path="res://scripts/distanceLabel.gd" id="3_qg7od"]
+[ext_resource type="PackedScene" uid="uid://0fri7ex6i2i1" path="res://scenes/player.tscn" id="4_hophd"]
+[ext_resource type="Script" path="res://scripts/jump_line.gd" id="6_ypa5u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8buu"]
+size = Vector2(2396.78, 1088)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xx1d4"]
+size = Vector2(24, 2624)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4461"]
+size = Vector2(2594.38, 497.911)
+
+[node name="LongJump" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(640, 640)
+scale = Vector2(31.5849, 1)
+collision_layer = 4
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+position = Vector2(1109.34, 480)
+scale = Vector2(3.99463, 1.81333)
+texture = ExtResource("1_w1jax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(1109.34, 480)
+shape = SubResource("RectangleShape2D_f8buu")
+
+[node name="TrackUI" parent="." instance=ExtResource("2_paubk")]
+
+[node name="distanceLabel" type="RichTextLabel" parent="TrackUI/CanvasLayer" index="1"]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 512.0
+offset_bottom = 72.0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+scroll_active = false
+script = ExtResource("3_qg7od")
+
+[node name="timeLabel" parent="TrackUI/CanvasLayer" index="2"]
+visible = false
+
+[node name="Player" parent="." instance=ExtResource("4_hophd")]
+position = Vector2(640, 320)
+
+[node name="Line" type="Area2D" parent="."]
+position = Vector2(2584, -736)
+script = ExtResource("6_ypa5u")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Line"]
+position = Vector2(12, 0)
+shape = SubResource("RectangleShape2D_xx1d4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Line"]
+modulate = Color(1, 0.329412, 0.329412, 0.196078)
+position = Vector2(12, 0)
+scale = Vector2(0.048, 5.248)
+texture = ExtResource("3_e3315")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.870588, 0.372549, 0.372549, 1)
+position = Vector2(2596, 1172)
+scale = Vector2(0.048, 2.384)
+texture = ExtResource("3_e3315")
+
+[node name="Sand" type="Area2D" parent="."]
+position = Vector2(38040, 1174.5)
+scale = Vector2(141.728, 2.394)
+
+[node name="Sand" type="Sprite2D" parent="Sand"]
+modulate = Color(0.741176, 0.713726, 0.623529, 1)
+position = Vector2(1047.1, 0)
+scale = Vector2(5.18842, 1)
+texture = ExtResource("3_e3315")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sand"]
+position = Vector2(1047.02, -1.04434)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_u4461")
+
+[connection signal="body_entered" from="Line" to="Line" method="_on_body_entered"]
+[connection signal="body_entered" from="Sand" to="TrackUI/CanvasLayer/startLabel" method="_on_sand_body_entered"]
+[connection signal="body_entered" from="Sand" to="Player" method="_on_sand_body_entered"]
+
+[editable path="TrackUI"]

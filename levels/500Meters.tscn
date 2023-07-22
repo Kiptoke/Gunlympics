@@ -50,4 +50,7 @@ texture = ExtResource("4_x12hb")
 [node name="Player" parent="." instance=ExtResource("2_355wn")]
 position = Vector2(640, 320)
 
+[connection signal="body_entered" from="Area2D" to="TrackUI/CanvasLayer/startLabel" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
+
+[editable path="TrackUI"]

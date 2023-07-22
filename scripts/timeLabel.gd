@@ -15,3 +15,9 @@ func _process(delta):
 	if globals.raceActive:
 		time += delta
 		text = str(format_string % [7, 3, time])
+
+func add_time(t):
+	time += t
+
+func update_time():
+	text = str(format_string % [7, 3, time])

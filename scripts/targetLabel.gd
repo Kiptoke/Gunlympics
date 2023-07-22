@@ -4,4 +4,4 @@ extends RichTextLabel
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	text = "[right] height: " + str(globals.player_height) + "[/right]"
+	text = "[right] targets left: " + str(15 - globals.targets_shot) + "[/right]"

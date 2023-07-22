@@ -235,6 +235,7 @@ position = Vector2(20476.9, 219.036)
 scale = Vector2(0.225714, 1.38814)
 texture = ExtResource("5_803qx")
 
+[connection signal="body_entered" from="Area2D" to="TrackUI/CanvasLayer/startLabel" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
 
 [editable path="TrackUI"]

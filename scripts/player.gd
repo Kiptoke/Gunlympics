@@ -12,6 +12,9 @@ var random = RandomNumberGenerator.new()
 var position_offset = 537
 
 func _ready():
+	globals.faultFlag = false
+	globals.raceActive = false
+	globals.raceFinish = false
 	randomize()
 
 func _integrate_forces(state):
@@ -33,7 +36,7 @@ func get_input():
 		on_shoot()
 
 func on_shoot():
-	if globals.raceActive == false:
+	if globals.raceActive == false and globals.raceFinish == false:
 		globals.faultFlag = true
 	
 	var bullet = preload("res://scenes/bullet.tscn").instantiate()
@@ -65,5 +68,11 @@ func apply_recoil():
 	elif side < 0:
 		apply_impulse(Vector2.RIGHT * torque, $LeftImpulse.global_position)
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
+	globals.raceFinish = true
 	globals.raceActive = false
+
+func _on_sand_body_entered(_body):
+	globals.jumpActive = false
+	globals.raceActive = false
+	globals.raceFinish = true
